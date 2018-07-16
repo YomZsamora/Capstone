@@ -47,7 +47,7 @@
             <RelativeLayout
                 android:id="@+id/hairDressingForm"
                 android:layout_width="match_parent"
-                android:layout_height="1500dp">
+                android:layout_height="wrap_content">
 
                 <RadioGroup
                     android:id="@+id/thirdQRadioButton"
@@ -268,7 +268,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/thirdQRadioButton"
-                    android:paddingBottom="60dp"
+                    android:paddingBottom="10dp"
                     android:paddingTop="10dp">
 
 
@@ -344,20 +344,6 @@
                         app:fontFamily="@font/lato_light" />
 
                     <TextView
-                        android:id="@+id/sixthQuestionTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/timeOptionsLayout"
-                        android:layout_centerHorizontal="true"
-                        android:gravity="center"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="15dp"
-                        android:text="Give us a location"
-                        android:textColor="@color/colorTextLight"
-                        android:textSize="20sp"
-                        app:fontFamily="@font/lato_light" />
-
-                    <TextView
                         android:id="@+id/stylistAvailableTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -407,7 +393,6 @@
                         android:textSize="16sp" />
 
 
-
                 </RelativeLayout>
 
             </RelativeLayout>
@@ -428,7 +413,7 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/button_bg_color"
         android:fontFamily="@font/lato"
-        android:text="Book Now"
+        android:text="Next"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
