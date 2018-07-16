@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.adzumi.capstone.R;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.createUserButton) Button mCreateUserButton;
     @BindView(R.id.loginButton) Button mLoginButton;
     @BindView(R.id.passwordEditText) EditText mPasswordEditText;
+    @BindView(R.id.adminTextView) TextView mAdminTextView;
     @BindView(R.id.confirmPasswordEditText) EditText mConfirmPasswordEditText;
 
     private FirebaseAuth mAuth;
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mCreateUserButton.setOnClickListener(this);
         mLoginButton.setOnClickListener(this);
+        mAdminTextView.setOnClickListener(this);
     }
 
     @Override
@@ -53,6 +56,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
             startActivity(intent);
             finish();
+        }
+        if (view == mAdminTextView){
+            Intent intent = new Intent(MainActivity.this, AdminLoginActivity.class);
+            startActivity(intent);
         }
         if (view == mLoginButton){
             loginWithPassword();
