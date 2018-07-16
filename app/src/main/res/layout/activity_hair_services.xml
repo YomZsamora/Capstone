@@ -402,7 +402,7 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/bookButton"
+        android:id="@+id/nextButton"
         android:layout_width="345dp"
         android:layout_height="33dp"
         android:layout_marginBottom="8dp"

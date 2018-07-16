@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Micasa</string>
-    <string name="google_maps_key">AIzaSyDZsnSQzhpQuTYapPss3gY5PVeTPstAdOw</string>
     <string name="title_activity_hair_services">HairServicesActivity</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

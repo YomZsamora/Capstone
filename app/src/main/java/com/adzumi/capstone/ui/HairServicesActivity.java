@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -32,6 +33,7 @@ public class HairServicesActivity extends AppCompatActivity implements View.OnCl
     @BindView(R.id.my_toolbar) Toolbar myToolbar;
     @BindView(R.id.editDate) EditText editDate;
     @BindView(R.id.toolbar_text) TextView toolbarText;
+    @BindView(R.id.nextButton) Button mNextButton;
     @BindView(R.id.yesRadioButton) RadioButton mYesRadioButton;
     @BindView(R.id.thirdQRadioButton) RadioGroup mThirdQRadioButton;
     @BindView(R.id.stylistAvailableTextView) TextView mStylistAvailableTextView;
@@ -87,6 +89,7 @@ public class HairServicesActivity extends AppCompatActivity implements View.OnCl
         });
 
         editDate.setHint("dd.MM.yyyy");
+        mNextButton.setOnClickListener(this);
         editDate.setOnClickListener(this);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -107,6 +110,10 @@ public class HairServicesActivity extends AppCompatActivity implements View.OnCl
             new DatePickerDialog(context, date, myCalendar
                     .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                     myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+        }
+        if (view == mNextButton){
+            Intent intent =  new Intent(HairServicesActivity.this, MapsActivity.class);
+            startActivity(intent);
         }
     }
 
