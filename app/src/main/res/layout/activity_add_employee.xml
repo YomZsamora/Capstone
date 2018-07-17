@@ -71,6 +71,7 @@
                     android:orientation="vertical">
 
                     <RadioButton
+                        android:id="@+id/coloring"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/colorPrimaryDark"
@@ -82,6 +83,7 @@
                         android:textSize="16sp" />
 
                     <RadioButton
+                        android:id="@+id/braiding"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/colorPrimaryDark"
@@ -93,6 +95,7 @@
                         android:textSize="16sp" />
 
                     <RadioButton
+                        android:id="@+id/hair_cutting"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/colorPrimaryDark"
@@ -104,6 +107,7 @@
                         android:textSize="16sp" />
 
                     <RadioButton
+                        android:id="@+id/weaves"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/colorPrimaryDark"
@@ -184,9 +188,9 @@
                     android:layout_below="@+id/nameTextView"
                     android:layout_centerHorizontal="true"
                     android:ems="10"
-                    android:inputType="textPersonName"
-                    android:hint="Enter Full Name ..."
                     android:fontFamily="@font/lato_light"
+                    android:hint="Enter Full Name ..."
+                    android:inputType="textPersonName"
                     android:textColor="@color/ColorPrimaryDarkest"
                     android:textColorHighlight="@color/ColorPrimaryDarkest"
                     android:textColorHint="@color/ColorPrimaryDarkest"
@@ -199,7 +203,7 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/nextButton"
+        android:id="@+id/addEmployeeButton"
         android:layout_width="345dp"
         android:layout_height="30dp"
         android:layout_marginBottom="8dp"
