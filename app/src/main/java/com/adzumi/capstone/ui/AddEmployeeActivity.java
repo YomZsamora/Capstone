@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
 
 import com.adzumi.capstone.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -15,34 +13,25 @@ import com.google.firebase.auth.FirebaseAuth;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class AdminHomeActivity extends AppCompatActivity implements View.OnClickListener {
+public class AddEmployeeActivity extends AppCompatActivity {
 
     @BindView(R.id.my_toolbar) Toolbar myToolbar;
-    @BindView(R.id.addEmployeeImageView) ImageView mAddEmployeeImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_home);
+        setContentView(R.layout.activity_add_employee);
         ButterKnife.bind(this);
 
         setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        mAddEmployeeImageView.setOnClickListener(this);
     }
-
-    @Override
-    public void onClick(View view) {
-        if (view == mAddEmployeeImageView) {
-            Intent intent = new Intent(AdminHomeActivity.this, AddEmployeeActivity.class);
-            startActivity(intent);
-        }
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.admin_menu, menu);
+        getMenuInflater().inflate(R.menu.title_menu, menu);
         return true;
     }
 
@@ -60,7 +49,7 @@ public class AdminHomeActivity extends AppCompatActivity implements View.OnClick
 
     private void logout() {
         FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(AdminHomeActivity.this, MainActivity.class);
+        Intent intent = new Intent(AddEmployeeActivity.this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();

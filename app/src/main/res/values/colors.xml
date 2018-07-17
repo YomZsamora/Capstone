@@ -5,5 +5,5 @@
     <color name="ColorPrimaryDarkest">#8e6439</color>
     <color name="colorTransparent">#00ffffff</color>
     <color name="colorTextLight">#827f7f</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#8e6439</color>
 </resources>

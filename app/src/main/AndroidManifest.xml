@@ -51,8 +51,18 @@
         <activity
             android:name=".ui.MapsActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".ui.AdminLoginActivity" />
-        <activity android:name=".ui.AdminHomeActivity"></activity>
+        <activity
+            android:name=".ui.AdminLoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.AdminHomeActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.AddEmployeeActivity"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustPan">
+
+        </activity>
     </application>
 
 </manifest>

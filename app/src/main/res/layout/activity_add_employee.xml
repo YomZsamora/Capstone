@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.AddEmployeeActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:minHeight="?attr/actionBarSize"
+        android:background="#00ffffff"
+        app:theme="@style/ToolBarStyle"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <TextView
+            android:id="@+id/toolbar_text"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Add Employee"
+            android:textColor="@color/colorPrimaryDark"
+            app:fontFamily="@font/lato_light"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="14dp"
+            tools:text="Add Employee" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="wrap_content"
+        android:layout_height="561dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/hairDressingForm"
+                android:layout_width="match_parent"
+                android:layout_height="485dp">
+
+                <EditText
+                    android:id="@+id/phoneEditText"
+                    android:layout_width="290dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="21dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:hint="Enter Phone Number ..."
+                    android:fontFamily="@font/lato_light"
+                    android:textColor="@color/ColorPrimaryDarkest"
+                    android:textColorLink="@color/ColorPrimaryDarkest" />
+
+                <RadioGroup
+                    android:id="@+id/firstQRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/deptTextView"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:checked="false"
+                        android:fontFamily="@font/lato_light"
+                        android:text="Hair Coloring and Dying"
+                        android:textColor="@color/colorTextLight"
+                        android:textColorLink="@color/colorPrimary"
+                        android:textSize="16sp" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:checked="false"
+                        android:fontFamily="@font/lato_light"
+                        android:text="Braiding"
+                        android:textColor="@color/colorTextLight"
+                        android:textColorLink="@color/colorPrimary"
+                        android:textSize="16sp" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:checked="false"
+                        android:fontFamily="@font/lato_light"
+                        android:text="Hair Cutting"
+                        android:textColor="@color/colorTextLight"
+                        android:textColorLink="@color/colorPrimary"
+                        android:textSize="16sp" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:checked="false"
+                        android:fontFamily="@font/lato_light"
+                        android:text="Weaves and Wigs"
+                        android:textColor="@color/colorTextLight"
+                        android:textColorLink="@color/colorPrimary"
+                        android:textSize="16sp" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/nameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="52dp"
+                    android:gravity="center"
+                    android:text="EMPLOYEE FULL NAME"
+                    android:textColor="@color/colorTextLight"
+                    android:textSize="20sp"
+                    app:fontFamily="@font/lato" />
+
+                <TextView
+                    android:id="@+id/deptTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="163dp"
+                    android:gravity="center"
+                    android:paddingTop="15dp"
+                    android:text="SELECT DEPARTMENT"
+                    android:textColor="@color/colorTextLight"
+                    android:textSize="20sp"
+                    app:fontFamily="@font/lato" />
+
+                <TextView
+                    android:id="@+id/secondQuestionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/phoneEditText"
+                    android:layout_centerHorizontal="true"
+                    android:paddingTop="15dp"
+                    android:text="PHONE NUMBER"
+                    android:textColor="@color/colorTextLight"
+                    android:textSize="20sp"
+                    app:fontFamily="@font/lato" />
+
+                <TextView
+                    android:id="@+id/formHeaderTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/bottom_border"
+                    android:text="Please Fill the Form"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
+                    app:fontFamily="@font/lato_light" />
+
+                <RelativeLayout
+                    android:id="@+id/onPremiseRelativeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/thirdQRadioButton"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp">
+
+
+                </RelativeLayout>
+
+                <EditText
+                    android:id="@+id/nameEditText"
+                    android:layout_width="308dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/nameTextView"
+                    android:layout_centerHorizontal="true"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:hint="Enter Full Name ..."
+                    android:fontFamily="@font/lato_light"
+                    android:textColor="@color/ColorPrimaryDarkest"
+                    android:textColorHighlight="@color/ColorPrimaryDarkest"
+                    android:textColorHint="@color/ColorPrimaryDarkest"
+                    android:textColorLink="@color/ColorPrimaryDarkest" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="345dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_bg_color"
+        android:fontFamily="@font/lato"
+        android:text="Add New Employee"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        app:layout_constraintVertical_bias="1.0" />
+
+</android.support.constraint.ConstraintLayout>
