@@ -385,7 +385,7 @@
                         android:ems="10"
                         android:focusable="false"
                         android:hint="dd/mm/yy"
-                        android:inputType="date"
+                        android:inputType="textPersonName"
                         android:paddingBottom="5dp"
                         android:paddingLeft="40dp"
                         android:textColor="@color/colorTextLight"
