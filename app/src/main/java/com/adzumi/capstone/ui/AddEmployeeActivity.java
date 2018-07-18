@@ -32,8 +32,6 @@ public class AddEmployeeActivity extends AppCompatActivity implements View.OnCli
     @BindView(R.id.phoneEditText) EditText mPhoneEditText;
     @BindView(R.id.addEmployeeButton) Button mAddEmployeeButton;
 
-    private Employees mEmployees;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,8 +60,8 @@ public class AddEmployeeActivity extends AppCompatActivity implements View.OnCli
             String uid = user.getUid();
             DatabaseReference mSavedBookReference = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_EMPLOYEES)
-                    .child(uid);
+                    .getReference()
+                    .child(Constants.FIREBASE_CHILD_EMPLOYEES);
             DatabaseReference pushRef = mSavedBookReference.push();
             pushRef.setValue(new_employee);
 

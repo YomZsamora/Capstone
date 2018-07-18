@@ -34,7 +34,7 @@
         <Button
             android:id="@+id/createUserButton"
             android:layout_width="972px"
-            android:layout_height="126px"
+            android:layout_height="47dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginEnd="8dp"
@@ -86,13 +86,15 @@
 
         <TextView
             android:id="@+id/adminTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="324dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:background="@drawable/layout_border_noradius"
+            android:gravity="center_horizontal"
             android:text="Micasa Admin Login"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"

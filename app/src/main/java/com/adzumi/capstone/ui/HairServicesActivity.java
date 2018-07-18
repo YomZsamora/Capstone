@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -18,8 +19,15 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.adzumi.capstone.Constants;
 import com.adzumi.capstone.R;
+import com.adzumi.capstone.adapters.FirebaseBookViewHolder;
+import com.adzumi.capstone.models.Employees;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -29,6 +37,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class HairServicesActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private DatabaseReference mSavedBookReference;
+    private FirebaseRecyclerAdapter mFirebaseAdapter;
 
     @BindView(R.id.my_toolbar) Toolbar myToolbar;
     @BindView(R.id.editDate) EditText editDate;
@@ -51,6 +62,16 @@ public class HairServicesActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hair_services);
         ButterKnife.bind(this);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        mSavedBookReference = FirebaseDatabase
+                .getInstance()
+                .getReference()
+                .child(Constants.FIREBASE_CHILD_EMPLOYEES);
+
+        setUpFirebaseAdapter();
 
         mOnPremiseRelativeLayout.setVisibility(View.GONE);
 
@@ -102,6 +123,28 @@ public class HairServicesActivity extends AppCompatActivity implements View.OnCl
                 startActivity(new Intent(getApplicationContext(), HomeActivity.class));
             }
         });
+    }
+
+    private void setUpFirebaseAdapter() {
+        mFirebaseAdapter = new FirebaseRecyclerAdapter<Employees, FirebaseBookViewHolder>
+                (Employees.class, R.layout.stylist_layout, FirebaseBookViewHolder.class,
+                        mSavedBookReference) {
+
+            @Override
+            protected void populateViewHolder(FirebaseBookViewHolder viewHolder,
+                                              Employees model, int position) {
+                viewHolder.bindBooks(model);
+            }
+        };
+        mstylistsRecyclerView.setHasFixedSize(true);
+        mstylistsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mstylistsRecyclerView.setAdapter(mFirebaseAdapter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mFirebaseAdapter.cleanup();
     }
 
     @Override

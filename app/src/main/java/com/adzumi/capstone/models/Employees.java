@@ -6,15 +6,15 @@ import org.parceler.Parcel;
 @Parcel
 public class Employees {
     private String name;
-    private String department;
+    private String dept;
     private String phone_number;
     private String pushId;
 
     public Employees() {}
 
-    public Employees(String name, String department, String phone_number){
+    public Employees(String name, String dept, String phone_number){
         this.name = name;
-        this.department = department;
+        this.dept = dept;
         this.phone_number = phone_number;
     }
 
@@ -23,7 +23,7 @@ public class Employees {
     }
 
     public String getDept() {
-        return department;
+        return dept;
     }
 
     public String getPhone() {
