@@ -1,4 +1,4 @@
-package com.adzumi.capstone.ui;
+package com.adzumi.capstoneadmin.ui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -9,10 +9,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.adzumi.capstone.R;
+import com.adzumi.capstoneadmin.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -25,7 +24,6 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = MainActivity.class.getSimpleName();
 
-    @BindView(R.id.createUserButton) Button mCreateUserButton;
     @BindView(R.id.loginButton) Button mLoginButton;
     @BindView(R.id.passwordEditText) EditText mPasswordEditText;
     @BindView(R.id.confirmPasswordEditText) EditText mConfirmPasswordEditText;
@@ -44,17 +42,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         createAuthStateListener();
         createAuthProgressDialog();
 
-        mCreateUserButton.setOnClickListener(this);
         mLoginButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view){
-        if (view == mCreateUserButton){
-            Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
-            startActivity(intent);
-            finish();
-        }
         if (view == mLoginButton){
             loginWithPassword();
         }
@@ -71,7 +63,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String email = mPasswordEditText.getText().toString().trim();
         String password = mConfirmPasswordEditText.getText().toString().trim();
         if (email.equals("")) {
-            mPasswordEditText.setError("Please enter your email");
+            mPasswordEditText.setError("Please enter admin email");
+            return;
+        }
+        if (!email.equals("admin@micasa.com")) {
+            mPasswordEditText.setError("Not Administrator");
             return;
         }
         if (password.equals("")) {
@@ -103,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                    Intent intent = new Intent(MainActivity.this, AdminHomeActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
