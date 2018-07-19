@@ -4,6 +4,7 @@ package com.adzumi.capstone.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -36,6 +37,9 @@ public class FirebaseBookViewHolder extends RecyclerView.ViewHolder implements V
     @BindView(R.id.ratingsTextView) TextView mRatingsTextView;
     @BindView(R.id.ratingBar2) RatingBar mEmployeeRatingBar;
 
+    private Employees mEmployees;
+    private SparseBooleanArray selectedItems = new SparseBooleanArray();
+
     View mView;
     Context mContext;
 
@@ -50,22 +54,9 @@ public class FirebaseBookViewHolder extends RecyclerView.ViewHolder implements V
     public void bindBooks(Employees employees) {
         mEmployeeNameTextView.setText(employees.getName());
         mDeptTextView.setText(employees.getDept());
-
-//        NumberFormat formatter = NumberFormat.getNumberInstance(Locale.US);
-//        double bookRatings = Double.parseDouble(employees.getRatingsCount().getText());
-//        mBookNameTextView.setText(employees.getBestBook().getTitle());
-//        mAuthorTextView.setText("By " + employees.getBestBook().getAuthor().getName());
-//        mRatingTextView.setText(employees.getAverageRating() + "/5");
-//        mRatingsTextView.setText(formatter.format(bookRatings) + " Ratings");
-//        mBookRatingBar.setRating(Float.valueOf(employees.getAverageRating()));
-
-
-//        if (!(employees.getBestBook().getSmallImageUrl().isEmpty())) {
-//            Picasso.with(mContext).load(employees.getBestBook().getSmallImageUrl())
-//                    .fit()
-//                    .centerCrop()
-//                    .into(mBookImageView);
-//        }
+        mRatingTextView.setText(employees.getRating() + "/5");
+        mRatingsTextView.setText(employees.getRatings() + " Ratings");
+        mEmployeeRatingBar.setRating(Float.valueOf(employees.getRating()));
     }
 
     @Override

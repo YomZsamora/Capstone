@@ -8,6 +8,9 @@ public class Employees {
     private String name;
     private String dept;
     private String phone_number;
+    private String rating;
+    private String ratings;
+    private boolean isSelected = false;
     private String pushId;
 
     public Employees() {}
@@ -26,8 +29,20 @@ public class Employees {
         return dept;
     }
 
+    public String getRating() { return rating; }
+
+    public String getRatings() { return ratings; }
+
     public String getPhone() {
         return phone_number;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
     }
 
     public String getPushId() {
