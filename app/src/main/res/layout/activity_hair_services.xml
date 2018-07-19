@@ -49,6 +49,120 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <RelativeLayout
+                    android:id="@+id/onSalonRelativeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/thirdQRadioButton"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp">
+
+
+                    <LinearLayout
+                        android:id="@+id/timeOptionsLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/fifthQuestionTextView"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/optionOne"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/clock_icon"
+                            android:padding="5dp"
+                            android:text="Come at around 7-9 A.M."
+                            app:fontFamily="@font/lato_light" />
+
+                        <TextView
+                            android:id="@+id/optionTwo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/clock_icon"
+                            android:padding="5dp"
+                            android:text="Come at around 9-11 A.M."
+                            app:fontFamily="@font/lato_light" />
+
+                        <TextView
+                            android:id="@+id/optionThree"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/clock_icon"
+                            android:padding="5dp"
+                            android:text="Come at around 11-1 P.M."
+                            app:fontFamily="@font/lato_light" />
+
+                        <TextView
+                            android:id="@+id/optionFour"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/clock_icon"
+                            android:padding="5dp"
+                            android:text="Come at around 1-3 P.M."
+                            app:fontFamily="@font/lato_light" />
+
+                        <TextView
+                            android:id="@+id/optionFive"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/clock_icon"
+                            android:padding="5dp"
+                            android:text="Come at around 3-5 P.M."
+                            app:fontFamily="@font/lato_light" />
+
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/fifthQuestionTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/editDate"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="15dp"
+                        android:text="At what time?"
+                        android:textColor="@color/colorTextLight"
+                        android:textSize="20sp"
+                        app:fontFamily="@font/lato_light" />
+
+                    <TextView
+                        android:id="@+id/fourthQuestionTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/stylistsRecyclerView"
+                        android:layout_centerHorizontal="true"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="15dp"
+                        android:text="When would you like to come?"
+                        android:textColor="@color/colorTextLight"
+                        android:textSize="20sp"
+                        app:fontFamily="@font/lato_light" />
+
+                    <EditText
+                        android:id="@+id/editDate"
+                        android:layout_width="650px"
+                        android:layout_height="92px"
+                        android:layout_below="@+id/fourthQuestionTextView"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/date_edittext"
+                        android:ems="10"
+                        android:focusable="false"
+                        android:hint="dd/mm/yy"
+                        android:inputType="textPersonName"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="40dp"
+                        android:textColor="@color/colorTextLight"
+                        android:textColorHint="@color/colorTextLight"
+                        android:textColorLink="@color/ColorPrimaryDarkest"
+                        android:textSize="16sp" />
+
+
+                </RelativeLayout>
+
                 <RadioGroup
                     android:id="@+id/thirdQRadioButton"
                     android:layout_width="match_parent"
@@ -71,6 +185,7 @@
                         android:textSize="16sp" />
 
                     <RadioButton
+                        android:id="@+id/noRadioButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/colorPrimaryDark"

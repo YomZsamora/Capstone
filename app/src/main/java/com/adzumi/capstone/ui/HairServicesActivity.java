@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.adzumi.capstone.Constants;
 import com.adzumi.capstone.R;
 import com.adzumi.capstone.adapters.FirebaseBookViewHolder;
+import com.adzumi.capstone.adapters.StylistsAdapter;
 import com.adzumi.capstone.models.Employees;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,6 +31,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -39,17 +41,21 @@ import butterknife.ButterKnife;
 public class HairServicesActivity extends AppCompatActivity implements View.OnClickListener {
 
     private DatabaseReference mSavedBookReference;
+    private StylistsAdapter mstylistAdapter;
     private FirebaseRecyclerAdapter mFirebaseAdapter;
+    public ArrayList<Employees> employees = new ArrayList<>();
 
     @BindView(R.id.my_toolbar) Toolbar myToolbar;
     @BindView(R.id.editDate) EditText editDate;
     @BindView(R.id.toolbar_text) TextView toolbarText;
     @BindView(R.id.nextButton) Button mNextButton;
     @BindView(R.id.yesRadioButton) RadioButton mYesRadioButton;
+    @BindView(R.id.noRadioButton) RadioButton mNoRadioButton;
     @BindView(R.id.thirdQRadioButton) RadioGroup mThirdQRadioButton;
     @BindView(R.id.stylistAvailableTextView) TextView mStylistAvailableTextView;
     @BindView(R.id.stylistsRecyclerView) RecyclerView mstylistsRecyclerView;
     @BindView(R.id.onPremiseRelativeLayout) RelativeLayout mOnPremiseRelativeLayout;
+    @BindView(R.id.onSalonRelativeLayout) RelativeLayout mOnSalonRelativeLayout;
     Context context = this;
     Calendar myCalendar = Calendar.getInstance();
     String dateFormat = "dd.MM.yyyy";
@@ -73,6 +79,8 @@ public class HairServicesActivity extends AppCompatActivity implements View.OnCl
 
         setUpFirebaseAdapter();
 
+
+        mOnSalonRelativeLayout.setVisibility(View.GONE);
         mOnPremiseRelativeLayout.setVisibility(View.GONE);
 
         // init - set date to current date
@@ -102,8 +110,14 @@ public class HairServicesActivity extends AppCompatActivity implements View.OnCl
                 // TODO Auto-generated method stub
                 if (mYesRadioButton.isChecked() == true) {
                     mOnPremiseRelativeLayout.setVisibility(View.VISIBLE);
-                }else{
+                    mOnSalonRelativeLayout.setVisibility(View.GONE);
+                } else if (mNoRadioButton.isChecked() == true){
+                    mOnSalonRelativeLayout.setVisibility(View.VISIBLE);
                     mOnPremiseRelativeLayout.setVisibility(View.GONE);
+                }
+                else{
+                    mOnPremiseRelativeLayout.setVisibility(View.GONE);
+                    mOnSalonRelativeLayout.setVisibility(View.GONE);
                 }
 
             }
