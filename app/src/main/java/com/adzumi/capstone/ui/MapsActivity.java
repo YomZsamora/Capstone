@@ -63,7 +63,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap = googleMap;
         LatLng TutorialsPoint = new LatLng(-1.301114, 36.784747);
         mMap.addMarker(new
-                MarkerOptions().position(TutorialsPoint).title("My Location"));
+                MarkerOptions().position(TutorialsPoint).title("Current Location").draggable(true));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(-1.301114,36.784747),15));
 
     }

@@ -13,7 +13,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDZsnSQzhpQuTYapPss3gY5PVeTPstAdOw" />
@@ -61,10 +60,8 @@
         <activity
             android:name=".ui.AddEmployeeActivity"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="adjustPan">
-
-        </activity>
-
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity android:name=".ui.BookingConfirmationActivity"></activity>
     </application>
 
 </manifest>

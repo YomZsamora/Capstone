@@ -78,7 +78,7 @@ public class HairServicesActivity extends AppCompatActivity implements View.OnCl
         // init - set date to current date
         long currentdate = System.currentTimeMillis();
         String dateString = sdf.format(currentdate);
-        editDate.setText(dateString);
+        editDate.setText("dd.MM.yyyy");
 
         // set calendar date and update editDate
         date = new DatePickerDialog.OnDateSetListener() {
