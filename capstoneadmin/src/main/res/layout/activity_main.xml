@@ -90,7 +90,10 @@
             android:layout_marginStart="30dp"
             android:fontFamily="@font/lato_light"
             android:gravity="center"
+            android:text="LOGGING IN AS ADMIN"
+            android:textColor="@color/ColorPrimaryDarkest"
             android:textSize="15dp"
+            app:fontFamily="@font/lato_bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -103,8 +106,18 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:fontFamily="@font/lato_black"
-        android:text="ADMIN LOGIN"
+        android:text="EMPLOYEE LOGIN"
         android:textColor="@color/colorPrimary"
         android:textSize="35sp" />
+
+    <ImageView
+        android:id="@+id/micasaLogo"
+        android:layout_width="346dp"
+        android:layout_height="316dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="40dp"
+        android:paddingTop="40dp"
+        app:srcCompat="@drawable/micasa_logo" />
 
 </RelativeLayout>

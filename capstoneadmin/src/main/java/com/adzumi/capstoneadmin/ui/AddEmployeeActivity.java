@@ -13,9 +13,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.adzumi.capstone.models.Employees;
 import com.adzumi.capstoneadmin.Constants;
 import com.adzumi.capstoneadmin.R;
-import com.adzumi.capstoneadmin.models.Employees;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;

@@ -20,14 +20,12 @@
         </activity>
         <activity
             android:name=".ui.AdminHomeActivity"
-            android:theme="@style/AppTheme">
-
-        </activity>
+            android:theme="@style/AppTheme"></activity>
         <activity
             android:name=".ui.AddEmployeeActivity"
-            android:windowSoftInputMode="adjustPan"
-            android:theme="@style/AppTheme">
-        </activity>
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity android:name=".ui.AllEmployeesActivity"></activity>
     </application>
 
 </manifest>

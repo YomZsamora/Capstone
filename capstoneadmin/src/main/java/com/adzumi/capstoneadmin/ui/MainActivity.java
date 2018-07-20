@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.adzumi.capstoneadmin.R;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.loginButton) Button mLoginButton;
     @BindView(R.id.passwordEditText) EditText mPasswordEditText;
     @BindView(R.id.confirmPasswordEditText) EditText mConfirmPasswordEditText;
+    @BindView(R.id.welcomeTextView) TextView mWelcomeTextView;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        mWelcomeTextView.setVisibility(View.GONE);
 
         mAuth = FirebaseAuth.getInstance();
         createAuthStateListener();
@@ -66,9 +70,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mPasswordEditText.setError("Please enter admin email");
             return;
         }
-        if (!email.equals("admin@micasa.com")) {
-            mPasswordEditText.setError("Not Administrator");
-            return;
+        if (email.equals("admin@micasa.com")) {
+            mWelcomeTextView.setVisibility(View.VISIBLE);
         }
         if (password.equals("")) {
             mConfirmPasswordEditText.setError("Password cannot be blank");

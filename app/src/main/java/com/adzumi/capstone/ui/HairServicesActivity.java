@@ -49,6 +49,7 @@ public class HairServicesActivity extends AppCompatActivity implements View.OnCl
     @BindView(R.id.editDate) EditText editDate;
     @BindView(R.id.toolbar_text) TextView toolbarText;
     @BindView(R.id.nextButton) Button mNextButton;
+    @BindView(R.id.submitButton) Button mSubmitButton;
     @BindView(R.id.yesRadioButton) RadioButton mYesRadioButton;
     @BindView(R.id.noRadioButton) RadioButton mNoRadioButton;
     @BindView(R.id.thirdQRadioButton) RadioGroup mThirdQRadioButton;
@@ -82,6 +83,8 @@ public class HairServicesActivity extends AppCompatActivity implements View.OnCl
 
         mOnSalonRelativeLayout.setVisibility(View.GONE);
         mOnPremiseRelativeLayout.setVisibility(View.GONE);
+        mSubmitButton.setVisibility(View.GONE);
+        mNextButton.setVisibility(View.GONE);
 
         // init - set date to current date
         long currentdate = System.currentTimeMillis();
@@ -111,19 +114,26 @@ public class HairServicesActivity extends AppCompatActivity implements View.OnCl
                 if (mYesRadioButton.isChecked() == true) {
                     mOnPremiseRelativeLayout.setVisibility(View.VISIBLE);
                     mOnSalonRelativeLayout.setVisibility(View.GONE);
+                    mNextButton.setVisibility(View.VISIBLE);
+                    mSubmitButton.setVisibility(View.GONE);
                 } else if (mNoRadioButton.isChecked() == true){
                     mOnSalonRelativeLayout.setVisibility(View.VISIBLE);
                     mOnPremiseRelativeLayout.setVisibility(View.GONE);
+                    mSubmitButton.setVisibility(View.VISIBLE);
+                    mNextButton.setVisibility(View.GONE);
                 }
                 else{
                     mOnPremiseRelativeLayout.setVisibility(View.GONE);
                     mOnSalonRelativeLayout.setVisibility(View.GONE);
+                    mSubmitButton.setVisibility(View.GONE);
+                    mNextButton.setVisibility(View.GONE);
                 }
 
             }
         });
 
         editDate.setHint("dd.MM.yyyy");
+        mSubmitButton.setOnClickListener(this);
         mNextButton.setOnClickListener(this);
         editDate.setOnClickListener(this);
         setSupportActionBar(myToolbar);
@@ -170,6 +180,10 @@ public class HairServicesActivity extends AppCompatActivity implements View.OnCl
         }
         if (view == mNextButton){
             Intent intent =  new Intent(HairServicesActivity.this, MapsActivity.class);
+            startActivity(intent);
+        }
+        if (view == mSubmitButton){
+            Intent intent =  new Intent(HairServicesActivity.this, BookingConfirmationActivity.class);
             startActivity(intent);
         }
     }

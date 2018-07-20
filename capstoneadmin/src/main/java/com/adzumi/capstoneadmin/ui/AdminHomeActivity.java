@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.adzumi.capstoneadmin.R;
@@ -17,8 +18,8 @@ import butterknife.ButterKnife;
 
 public class AdminHomeActivity extends AppCompatActivity implements View.OnClickListener {
 
-    @BindView(R.id.my_toolbar)
-    Toolbar myToolbar;
+    @BindView(R.id.my_toolbar) Toolbar myToolbar;
+    @BindView(R.id.viewEmployeesButton) Button mViewEmployeesButton;
     @BindView(R.id.addEmployeeImageView)
     ImageView mAddEmployeeImageView;
 
@@ -31,12 +32,17 @@ public class AdminHomeActivity extends AppCompatActivity implements View.OnClick
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         mAddEmployeeImageView.setOnClickListener(this);
+        mViewEmployeesButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         if (view == mAddEmployeeImageView) {
             Intent intent = new Intent(AdminHomeActivity.this, AddEmployeeActivity.class);
+            startActivity(intent);
+        }
+        if (view == mViewEmployeesButton) {
+            Intent intent = new Intent(AdminHomeActivity.this, AllEmployeesActivity.class);
             startActivity(intent);
         }
     }
